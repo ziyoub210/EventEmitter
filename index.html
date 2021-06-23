@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发布 - 订阅模式</title>
+</head>
+<body>
+  <script src="./index.js"></script>
+  <script>
+    
+    function foo1() {
+      console.log(1)
+    }
+    function foo2 () {
+      console.log(2)
+    }
+    function foo3 () {
+      console.log(3)
+    }
+    function foo4 () {
+      console.log(4)
+    }
+    
+    var event = new EventEmitter();
+    console.log(event);
+    event.on('click',foo1).on('click',foo2).on('click', foo3).on('click', foo4);
+    event.once('move', foo1).once('move', foo3).once('move', foo2).once('move', foo4);
+    event.emit('click');
+    event.off('click', foo2);
+    event.emit('move');
+    console.log(event);
+  </script>
+</body>
+</html>
