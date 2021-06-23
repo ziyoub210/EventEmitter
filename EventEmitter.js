@@ -32,7 +32,6 @@ EventEmitter.prototype.once = function(type, handler) {
  * arguments.length 0 移除type类型的handler事件
  */
 EventEmitter.prototype.off = function(type, handler) {
-  console.log('gagag');
   let argsLen = arguments.length;
   //移除所有事件
   if(argsLen === 0) {
